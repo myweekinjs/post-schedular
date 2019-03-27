@@ -1,20 +1,39 @@
+import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 import Layout from '../components/layout'
 import SignInWithGoogle from '../components/SignInWithGoogle'
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import CreateTweet from '../components/CreateTweet';
 
-const Home = () => {
+const Home = ({
+  isAuthenicated
+}) => {
   return (
     <Layout>
-      <Grid
-        alignItems='center'
-        justify='center'
-        container={true}
-        direction='column'
-      >
-        <Typography variant="h2" gutterBottom>Welcome to Schedular</Typography>
-        <SignInWithGoogle />
-      </Grid>
+      <Container>
+        {
+          isAuthenicated !== null ? (
+            <>
+              <Row>
+                <Col>
+                  <h4>Schedule Tweets</h4>
+                  <CreateTweet />
+                </Col>
+                <Col>
+                  <h4>Your Scheduled Tweets</h4>
+                </Col>
+              </Row>
+            </>
+          ) : (
+            <>
+              <h2>Welcome to Schedular</h2>
+              <SignInWithGoogle />
+            </>
+          )
+        }
+      </Container>
     </Layout>
   )
 }
