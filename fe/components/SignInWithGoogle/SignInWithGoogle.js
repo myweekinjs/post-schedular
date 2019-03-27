@@ -1,28 +1,24 @@
 import React from 'react'
-import Button from '@material-ui/core/Button';
-import firebase from '../firebase'
+import Button from 'react-bootstrap/Button';
+import Firebase from '../firebase'
 
 const SignInWithGoogle = () => {
   const popUpAuth = (e) => {
     e.preventDefault()
     
-    const provider = new firebase.auth.GoogleAuthProvider()
-    provider.addScope('profile')
-    provider.addScope('email')
+    const firebase = new Firebase()
 
-    firebase.auth().signInWithPopup(provider)
-      .then((result) => {
-        console.log(result)
+    firebase.doSetSessionPersistence()
+      .then(() => {
+        firebase.doSignInWithGoogle()
+          .then(res => { console.log(res) })
+          .catch(res => { console.error(res) })
       })
-      .catch((e) => {
-        console.error(e)
-      })
+      .catch(e => { console.error(e) })
   }
 
   return (
-    <Button variant="contained" color="primary" onClick={(e) => popUpAuth(e)}>
-      Sign In With Google
-    </Button>
+    <Button variant="primary" onClick={(e) => popUpAuth(e)}>Sign In With Google</Button>
   )
 }
 
