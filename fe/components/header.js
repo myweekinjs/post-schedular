@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar'
+import Firebase from './firebase'
 
 const styles = {
   root: {
@@ -13,6 +14,16 @@ const styles = {
 
 const Header = (props) => {
   const { isAuthenticated } = props;
+
+  const logout = (e) => {
+    e.preventDefault()
+    const f = new Firebase()
+    f.auth.signOut().then(() => {
+      if (typeof window !== 'undefined') {
+        window.location.reload()
+      }
+    })
+  }
   
   return (
     <div style={ styles.root }>
@@ -20,7 +31,7 @@ const Header = (props) => {
         <div style={ styles.root }>
           <Navbar.Brand>Schedular</Navbar.Brand>
         </div>
-        { isAuthenticated ? <Button variant="primary">Logout</Button> : false }
+        { isAuthenticated ? <Button variant="primary" onClick={(e) => logout(e)}>Logout</Button> : false }
       </Navbar>
     </div>
   );
