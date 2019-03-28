@@ -43,7 +43,7 @@ class CreateTweet extends React.Component {
   
         <Form.Group>
           <Form.Label>Date and Time</Form.Label>
-          <Form.Control type="datetime" name="date" id="date" value={this.state.date} onChange={(e) => this.onChnage(e)} />
+          <Form.Control type="datetime-local" name="date" id="date" value={this.state.date} onChange={(e) => this.onChnage(e)} />
         </Form.Group>
   
         <Button type="submit">Schedule Tweet</Button>
