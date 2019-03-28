@@ -2,7 +2,7 @@ require('dotenv').config()
 const admin = require('firebase-admin')
 const Twit = require('twit')
 
-const key = require('./post-schedular-firebase-adminsdk-geihr-3f3bc9be31.json')
+// const key = require('./post-schedular-firebase-adminsdk-geihr-3f3bc9be31.json')
 
 admin.initializeApp({
   credential: admin.credential.cert({
