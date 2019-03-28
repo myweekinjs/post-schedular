@@ -5,7 +5,11 @@ const Twit = require('twit')
 const key = require('./post-schedular-firebase-adminsdk-geihr-3f3bc9be31.json')
 
 admin.initializeApp({
-  credential: admin.credential.cert(key),
+  credential: admin.credential.cert({
+    projectId: process.env.FIREBASE_projectId,
+    clientEmail: process.env.FIREBASE_clientEmail,
+    privateKey: process.env.FIREBASE_key
+  }),
   databaseURL: "https://post-schedular.firebaseio.com"
 })
 
@@ -43,3 +47,5 @@ const schedular = () => {
 }
 
 schedular()
+
+setInterval(schedular, 3000000)
