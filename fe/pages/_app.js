@@ -16,7 +16,7 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    pageProps.isAuthenticated = await firebase.auth.currentUser
+    pageProps.isAuthenticated = await firebase.doAuthCheck()
 
     return { pageProps }
   }
