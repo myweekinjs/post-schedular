@@ -9,13 +9,13 @@ import CreateTweet from '../components/CreateTweet'
 import ScheduleTweets from '../components/ScheduleTweets'
 
 const Home = ({
-  isAuthenicated
+  isAuthenticated
 }) => {
   return (
     <Layout>
       <Container>
         {
-          isAuthenicated !== null ? (
+          isAuthenticated !== null ? (
             <>
               <Row>
                 <Col>
@@ -24,7 +24,7 @@ const Home = ({
                 </Col>
                 <Col>
                   <h4>Your Scheduled Tweets</h4>
-                  <ScheduleTweets />
+                  <ScheduleTweets user={isAuthenticated} />
                 </Col>
               </Row>
             </>
