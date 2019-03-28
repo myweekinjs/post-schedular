@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "dotenv": "^7.0.0",
     "firebase": "^5.9.1",
+    "firebase-admin": "^7.1.1",
     "twit": "^2.2.11"
   }
 }
