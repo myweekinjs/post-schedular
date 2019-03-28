@@ -4,6 +4,7 @@ import Firebase from '../components/firebase'
 import Header from '../components/header'
 
 class MyApp extends App {
+
   state = {
     user: null
   }
@@ -21,8 +22,9 @@ class MyApp extends App {
     return { pageProps }
   }
 
-  componentDidMount() {
+  authListener = () => {
     const firebase = new Firebase()
+
     firebase.auth.onAuthStateChanged((user) => {
       if (user) {
         this.props.pageProps.isAuthenticated = user
@@ -31,11 +33,20 @@ class MyApp extends App {
         })
       }
       else {
+        this.props.pageProps.isAuthenticated = null
         this.setState({
           user: null
         })
       }
     })
+  }
+
+  componentDidMount() {
+    this.authListener()
+  }
+
+  componentWillUnmount() {
+    this.authListener = undefined
   }
 
   render() {
