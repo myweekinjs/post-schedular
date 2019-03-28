@@ -5,7 +5,8 @@ import Col from 'react-bootstrap/Col'
 
 import Layout from '../components/layout'
 import SignInWithGoogle from '../components/SignInWithGoogle'
-import CreateTweet from '../components/CreateTweet';
+import CreateTweet from '../components/CreateTweet'
+import ScheduleTweets from '../components/ScheduleTweets'
 
 const Home = ({
   isAuthenicated
@@ -23,6 +24,7 @@ const Home = ({
                 </Col>
                 <Col>
                   <h4>Your Scheduled Tweets</h4>
+                  <ScheduleTweets />
                 </Col>
               </Row>
             </>
