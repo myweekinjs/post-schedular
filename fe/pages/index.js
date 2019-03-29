@@ -29,10 +29,10 @@ const Home = ({
               </Row>
             </>
           ) : (
-            <>
+            <div className="text-center">
               <h2>Welcome to Schedular</h2>
               <SignInWithGoogle />
-            </>
+            </div>
           )
         }
       </Container>
