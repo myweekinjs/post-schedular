@@ -26,18 +26,10 @@ class MyApp extends App {
     const firebase = new Firebase()
 
     firebase.auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.props.pageProps.isAuthenticated = user
-        this.setState({
-          user: user
-        })
-      }
-      else {
-        this.props.pageProps.isAuthenticated = null
-        this.setState({
-          user: null
-        })
-      }
+      this.props.pageProps.isAuthenticated = user
+      this.setState({
+        user: user
+      })
     })
   }
 
