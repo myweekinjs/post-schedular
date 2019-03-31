@@ -29,7 +29,7 @@ const isPastPost = (date) => {
  * @return false
  */
 const deletePostFromFirebase = (ref) => {
-  admin.database.ref(ref).remove()
+  admin.database().ref(ref).remove()
 }
 
 /**
